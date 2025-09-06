@@ -15,7 +15,8 @@ namespace Dominio
         public Categoria categoria { get; set; }
         public string descripcion { get; set; }
 
-        //List < imagen>
+        public List<string> UrlImagen { get; set; }
+
         private float precio;
         public float Precio
         {
