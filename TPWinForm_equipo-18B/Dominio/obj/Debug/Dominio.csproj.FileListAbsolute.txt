@@ -1,6 +1,0 @@
-C:\Users\balta\OneDrive\Desktop\UTN\CURSANDO\Programacion 3\repoGithub\actividad2- Grupo18\tp-winform-equipo-18B\TPWinForm_equipo-18B\Dominio\bin\Debug\Dominio.dll
-C:\Users\balta\OneDrive\Desktop\UTN\CURSANDO\Programacion 3\repoGithub\actividad2- Grupo18\tp-winform-equipo-18B\TPWinForm_equipo-18B\Dominio\bin\Debug\Dominio.pdb
-C:\Users\balta\OneDrive\Desktop\UTN\CURSANDO\Programacion 3\repoGithub\actividad2- Grupo18\tp-winform-equipo-18B\TPWinForm_equipo-18B\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
-C:\Users\balta\OneDrive\Desktop\UTN\CURSANDO\Programacion 3\repoGithub\actividad2- Grupo18\tp-winform-equipo-18B\TPWinForm_equipo-18B\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
-C:\Users\balta\OneDrive\Desktop\UTN\CURSANDO\Programacion 3\repoGithub\actividad2- Grupo18\tp-winform-equipo-18B\TPWinForm_equipo-18B\Dominio\obj\Debug\Dominio.dll
-C:\Users\balta\OneDrive\Desktop\UTN\CURSANDO\Programacion 3\repoGithub\actividad2- Grupo18\tp-winform-equipo-18B\TPWinForm_equipo-18B\Dominio\obj\Debug\Dominio.pdb
