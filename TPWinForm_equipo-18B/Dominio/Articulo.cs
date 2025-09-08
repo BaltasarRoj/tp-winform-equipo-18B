@@ -9,27 +9,16 @@ namespace Dominio
 {
     public class Articulo
     {
-        public int idArticulo { get; set; }
+        public int id { get; set; }
+        public string codigoArticulo { get; set; }
         public string nombre { get; set; }
-        public Marca marca { get; set; }
-        public Categoria categoria { get; set; }
+        public Marca Marca { get; set; }
+        public Categoria tipo { get; set; }
         public string descripcion { get; set; }
+        public decimal precio { get; set; }
 
-        public List<string> UrlImagen { get; set; }
+        //public Imagen imagen { get; set; }
 
-        private float precio;
-        public float Precio
-        {
-            get { return precio; }
-            set
-            {
-                if (value <= 0)
-                    precio = value;
-
-                else precio = -2;
-            }
-
-        }
     }
 }
 
