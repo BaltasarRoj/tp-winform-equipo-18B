@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Dominio
 {
-    class ArticuloDatos
+    public class ArticuloDatos
     {
         public List<Articulo> listar()
         {
@@ -31,7 +31,7 @@ namespace Dominio
                 while (lector.Read())
                 {
                     Articulo aux = new Articulo();
-                    aux.idArticulo = lector.GetInt32(0);
+                    aux.id = lector.GetInt32(0);
                     aux.descripcion = (string)lector["Descripcion"];
                     aux.nombre = (string)lector["Nombre"];
                     lista.Add(aux);
