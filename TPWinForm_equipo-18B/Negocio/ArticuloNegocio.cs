@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dominio;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Negocio
 {
@@ -13,11 +14,11 @@ namespace Negocio
         public List<Articulo> listar() { 
             
             List <Articulo>lista = new List<Articulo>();
-            AccesoDatos datos = new AccesoDatos();
+            AccesooDatos datos = new AccesooDatos();
             
             try
             {
-                datos.setearConsulta("select A.Id,Codigo,Nombre,M.Descripcion as Marca,C.Descripcion as Tipo, A.Descripcion,Precio from ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca and C.Id= A.IdCategoria");
+                datos.setearConsulta("SELECT A.Id, A.Codigo, A.Nombre, M.Descripcion AS Marca, C.Descripcion AS Tipo, A.Descripcion, A.Precio, I.ImagenUrl AS Imagen FROM ARTICULOS A LEFT JOIN IMAGENES I ON I.IdArticulo = A.Id JOIN MARCAS M ON M.Id = A.IdMarca JOIN CATEGORIAS C ON C.Id = A.IdCategoria");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -33,6 +34,7 @@ namespace Negocio
                     aux.tipo.Descripcion = (string)datos.Lector["Tipo"];
                     aux.descripcion = (string)datos.Lector["Descripcion"];
                     aux.precio = (decimal)datos.Lector["Precio"];
+                    aux.UrlImagen = (string)datos.Lector["Imagen"];
 
                     lista.Add(aux);
                 }
@@ -53,7 +55,7 @@ namespace Negocio
         
         public void agregarArticulo(Articulo nuevo) {
 
-            AccesoDatos datos = new AccesoDatos();
+            AccesooDatos datos = new AccesooDatos();
             try
             {
                 datos.setearConsulta("insert into ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,Precio) values (@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@Precio)");
