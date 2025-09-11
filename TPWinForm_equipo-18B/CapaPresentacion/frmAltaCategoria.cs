@@ -44,12 +44,12 @@ namespace CapaPresentacion
 
         private void frmAltaCategoria_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
         }
 
         private void frmAltaCategoria_Load_1(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace CapaPresentacion
             {
                 CategoriaNegocio negocio = new CategoriaNegocio();
                 dgvCategorias.DataSource = negocio.listar();
-                
+
             }
             catch (Exception ex)
             {
@@ -83,6 +83,16 @@ namespace CapaPresentacion
             cargar();
         }
 
+        private void btnEliminarCategoria_Click(object sender, EventArgs e)
+        {
+            if (dgvCategorias.CurrentRow != null)
+            {
+                Categoria seleccionado = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
+                CategoriaNegocio negocio = new CategoriaNegocio();
+                negocio.eliminar(seleccionado.Id);
+                MessageBox.Show("categoria eliminada");
+                cargar();
+            }
+        }
     }
-
 }
