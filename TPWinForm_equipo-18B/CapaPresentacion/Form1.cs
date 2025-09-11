@@ -12,24 +12,39 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class Articulos : Form
+    public partial class Form1 : Form
     {
         private List<Articulo> listaArticulo;
-        public Articulos()
+        public Form1()
         {
             InitializeComponent();
         }
-    
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            listaArticulo = negocio.listar();
-            
-            dgvArticulos.DataSource = listaArticulo;
-            dgvArticulos.Columns["UrlImagen"].Visible = false;
-            pbxArticulo.Load(listaArticulo[0].UrlImagen);
+            cargar();
         }
+          
+
+        private void cargar() {
+            try
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                listaArticulo = negocio.listar();
+
+                dgvArticulos.DataSource = listaArticulo;
+                dgvArticulos.Columns["UrlImagen"].Visible = false;
+                pbxArticulo.Load(listaArticulo[0].UrlImagen);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        
+        
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
@@ -44,13 +59,24 @@ namespace CapaPresentacion
             {
                 pbxArticulo.Load(imagen);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 pbxArticulo.Load("https://dynamoprojects.com/wp-content/uploads/2022/12/no-image.jpg");
             }  
           
         }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAltaArticulo alta = new frmAltaArticulo();
+            alta.ShowDialog();
+            cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }
