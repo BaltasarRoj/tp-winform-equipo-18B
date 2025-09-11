@@ -64,7 +64,24 @@ namespace Negocio
 
         public void modificar(Marca modificar)
         {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("UPDATE MARCAS SET Descripcion = @descripcion WHERE Id = @id");
+                datos.setearParametro("@id", modificar.Id);
+                datos.setearParametro("@descripcion", modificar.Descripcion);
 
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
 
         public void eliminar(int id)

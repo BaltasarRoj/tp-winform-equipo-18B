@@ -13,7 +13,7 @@ namespace Dominio
         [DisplayName("ID")]
         public int id { get; set; }
 
-        [DisplayName("CODIGO ARTICULO")]
+        [DisplayName("CÓDIGO ARTÍCULO")]
         public string codigoArticulo { get; set; }
 
         [DisplayName("NOMBRE")]
@@ -22,10 +22,10 @@ namespace Dominio
         [DisplayName("MARCA")]
         public Marca Marca { get; set; }
 
-        [DisplayName("TIPO")]
+        [DisplayName("CATEGORÍA")]
         public Categoria tipo { get; set; }
 
-        [DisplayName("DESCRIPCION")]
+        [DisplayName("DESCRIPCIÓN")]
         public string descripcion { get; set; }
 
         [DisplayName("PRECIO")]
