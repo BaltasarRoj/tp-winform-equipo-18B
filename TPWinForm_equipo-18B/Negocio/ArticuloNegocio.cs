@@ -14,7 +14,7 @@ namespace Negocio
         public List<Articulo> listar() { 
             
             List <Articulo>lista = new List<Articulo>();
-            AccesooDatos datos = new AccesooDatos();
+            AccesoDatos datos = new AccesoDatos();
             
             try
             {
@@ -41,9 +41,9 @@ namespace Negocio
 
                 return lista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             finally 
             {
@@ -55,7 +55,7 @@ namespace Negocio
         
         public void agregarArticulo(Articulo nuevo) {
 
-            AccesooDatos datos = new AccesooDatos();
+            AccesoDatos datos = new AccesoDatos();
             try
             {
                 datos.setearConsulta("insert into ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,Precio) values (@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@Precio)");
