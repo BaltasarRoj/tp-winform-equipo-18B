@@ -71,5 +71,10 @@ namespace CapaPresentacion
 
 
         }
+
+        private void cboMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

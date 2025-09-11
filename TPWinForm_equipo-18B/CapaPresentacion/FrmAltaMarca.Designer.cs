@@ -82,6 +82,7 @@
             this.Name = "FrmAltaMarca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar una Marca";
+            this.Load += new System.EventHandler(this.FrmAltaMarca_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -44,5 +44,10 @@ namespace CapaPresentacion
         {
             this.Close();
         }
+
+        private void FrmAltaMarca_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

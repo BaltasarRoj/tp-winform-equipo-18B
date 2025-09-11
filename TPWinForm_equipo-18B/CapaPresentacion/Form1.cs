@@ -44,7 +44,6 @@ namespace CapaPresentacion
             }
         }
         
-        
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
@@ -76,6 +75,27 @@ namespace CapaPresentacion
         private void btnModificar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void pbxArticulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEdiCategoria_Click(object sender, EventArgs e)
+        {
+            frmAltaCategoria ventana = new frmAltaCategoria();
+            ventana.ShowDialog();
+        }
+
+        private void btnExitPrincipal_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
     

@@ -57,5 +57,10 @@ namespace CapaPresentacion
             MarcaNegocio negocio = new MarcaNegocio();
             dgvMarca.DataSource = negocio.listar();
         }
+
+        private void dgvMarca_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
