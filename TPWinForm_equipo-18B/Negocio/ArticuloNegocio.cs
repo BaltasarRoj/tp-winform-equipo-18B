@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -36,8 +37,11 @@ namespace Negocio
                     aux.tipo.Id = (int)datos.Lector["IdCategoria"];
                     aux.tipo.Descripcion = (string)datos.Lector["Tipo"];
                     
+                    if (!(datos.Lector["Descripcion"] is DBNull))
                     aux.descripcion = (string)datos.Lector["Descripcion"];
                     aux.precio = (decimal)datos.Lector["Precio"];
+                    
+                    if (!(datos.Lector["Imagen"] is DBNull))
                     aux.UrlImagen = (string)datos.Lector["Imagen"];
 
                     lista.Add(aux);
@@ -62,15 +66,13 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("insert into ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,Precio) values (@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@Precio)");
+                datos.setearConsulta("insert into ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,Precio) values (@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@Precio); insert into IMAGENES (ImagenUrl,IdArticulo) values (@imagen,@idarticulo)");
                 datos.setearParametro("@Codigo", nuevo.codigoArticulo);
                 datos.setearParametro("@Nombre", nuevo.nombre);
                 datos.setearParametro("@IdMarca", nuevo.Marca.Id);
                 datos.setearParametro("@IdCategoria", nuevo.tipo.Id);
                 datos.setearParametro("@Descripcion", nuevo.descripcion);
                 datos.setearParametro("@Precio", nuevo.precio);
-                
-                datos.setearConsulta("insert into IMAGENES (ImagenUrl,IdArticulo) values (@imagen,@idarticulo) ");
                 datos.setearParametro("@imagen",nuevo.UrlImagen);
                 datos.setearParametro("@idarticulo",nuevo.id);
 
