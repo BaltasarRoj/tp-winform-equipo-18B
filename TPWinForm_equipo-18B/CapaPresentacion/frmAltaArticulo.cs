@@ -14,9 +14,17 @@ namespace CapaPresentacion
 {
     public partial class frmAltaArticulo : Form
     {
+        private Articulo articulo = null;
         public frmAltaArticulo()
         {
             InitializeComponent();
+        }
+        
+        public frmAltaArticulo(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+            Text = "Modificar Articulo";
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -26,19 +34,35 @@ namespace CapaPresentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Articulo nuevo = new Articulo();    
+            //Articulo nuevo = new Articulo();    
             ArticuloNegocio negocio = new ArticuloNegocio();    
             try
             {
-                nuevo.codigoArticulo = txtCodigo.Text;
-                nuevo.nombre = txtNombre.Text;
-                nuevo.Marca = (Marca)cboMarca.SelectedItem;
-                //guardar la categoria........
-                nuevo.descripcion = txtDescripcion.Text;
-                nuevo.precio =  decimal.Parse(txtPrecio.Text);
+                 if (articulo == null)
+                    articulo = new Articulo();
 
-                negocio.agregarArticulo(nuevo);
-                MessageBox.Show("agregado correctamente");
+                articulo.codigoArticulo = txtCodigo.Text;
+                articulo.nombre = txtNombre.Text;
+                articulo.Marca = (Marca)cboMarca.SelectedItem;
+                articulo.tipo = (Categoria)cboCategoria.SelectedItem;
+                articulo.descripcion = txtDescripcion.Text;
+                articulo.precio =  decimal.Parse(txtPrecio.Text);
+
+                if (articulo.id != 0)
+                {
+
+                    negocio.modificarArticulo(articulo);
+                    MessageBox.Show("Modificado correctamente");
+
+                }
+                else { 
+                
+                    negocio.agregarArticulo(articulo);
+                    MessageBox.Show("agregado correctamente");
+
+                }
+
+
                 Close();
             
             }
@@ -57,11 +81,28 @@ namespace CapaPresentacion
         private void frmAltaArticulo_Load(object sender, EventArgs e)
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
+            CategoriaNegocio categoriaNegocio= new CategoriaNegocio();
 
             try
             {
                 cboMarca.DataSource = marcaNegocio.listar();
-                //manejo de combobox categoria
+                cboMarca.ValueMember = "Id";
+                cboMarca.DisplayMember = "Descripcion";
+                cboCategoria.DataSource = categoriaNegocio.listar();
+                cboCategoria.ValueMember = "Id";
+                cboCategoria.DisplayMember = "Descripcion";
+
+
+                if (articulo != null) {
+                    txtCodigo.Text = articulo.codigoArticulo;
+                    txtNombre.Text = articulo.nombre;
+                    cboMarca.SelectedValue = articulo.Marca.Id;
+                    cboCategoria.SelectedValue = articulo.tipo.Id;
+                    txtDescripcion.Text = articulo.descripcion;
+                    txtPrecio.Text = articulo.precio.ToString();
+
+                }
+            
             }
             catch (Exception ex)
             {
