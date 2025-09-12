@@ -47,6 +47,8 @@ namespace CapaPresentacion
                 articulo.tipo = (Categoria)cboCategoria.SelectedItem;
                 articulo.descripcion = txtDescripcion.Text;
                 articulo.precio =  decimal.Parse(txtPrecio.Text);
+                articulo.UrlImagen = txtUrlImagen.Text;
+
 
                 if (articulo.id != 0)
                 {
@@ -100,7 +102,8 @@ namespace CapaPresentacion
                     cboCategoria.SelectedValue = articulo.tipo.Id;
                     txtDescripcion.Text = articulo.descripcion;
                     txtPrecio.Text = articulo.precio.ToString();
-
+                    txtUrlImagen.Text = articulo.UrlImagen;
+                    cargarImagen(articulo.UrlImagen);
                 }
             
             }
@@ -115,6 +118,25 @@ namespace CapaPresentacion
 
         private void cboMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void txtUrlImagen_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(txtUrlImagen.Text);
+        }
+
+        private void cargarImagen(string imagen)
+        {
+
+            try
+            {
+                pboArticulosAlta.Load(imagen);
+            }
+            catch (Exception)
+            {
+                pboArticulosAlta.Load("https://dynamoprojects.com/wp-content/uploads/2022/12/no-image.jpg");
+            }
 
         }
     }

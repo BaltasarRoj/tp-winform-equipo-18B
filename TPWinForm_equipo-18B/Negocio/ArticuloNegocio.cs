@@ -69,6 +69,10 @@ namespace Negocio
                 datos.setearParametro("@IdCategoria", nuevo.tipo.Id);
                 datos.setearParametro("@Descripcion", nuevo.descripcion);
                 datos.setearParametro("@Precio", nuevo.precio);
+                
+                datos.setearConsulta("insert into IMAGENES (ImagenUrl,IdArticulo) values (@imagen,@idarticulo) ");
+                datos.setearParametro("@imagen",nuevo.UrlImagen);
+                datos.setearParametro("@idarticulo",nuevo.id);
 
                 datos.ejecutarAccion();
 
@@ -100,6 +104,11 @@ namespace Negocio
                 datos.setearParametro("@desc", modificar.descripcion);
                 datos.setearParametro("@precio", modificar.precio);
                 datos.setearParametro("@Id", modificar.id);
+
+                datos.setearConsulta("update IMAGENES set ImagenUrl = @imagen where IdArticulo = @idarticulo");
+                datos.setearParametro("@imagen",modificar.UrlImagen);
+                datos.setearParametro("@idarticulo", modificar.id);
+
 
                 datos.ejecutarAccion();
 

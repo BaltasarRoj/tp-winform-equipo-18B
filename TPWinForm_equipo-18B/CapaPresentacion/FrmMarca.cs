@@ -62,5 +62,15 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnModificarMarca_Click(object sender, EventArgs e)
+        {
+            Marca seleccionado;
+            seleccionado = (Marca)dgvMarca.CurrentRow.DataBoundItem;
+
+            FrmAltaMarca modificar = new FrmAltaMarca(seleccionado);
+            modificar.ShowDialog();
+            cargar();
+        }
     }
 }

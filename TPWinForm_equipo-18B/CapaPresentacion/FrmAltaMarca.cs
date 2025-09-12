@@ -14,21 +14,43 @@ namespace CapaPresentacion
 {
     public partial class FrmAltaMarca : Form
     {
+        private Marca marca = null;
         public FrmAltaMarca()
         {
             InitializeComponent();
         }
 
+        
+        public FrmAltaMarca(Marca marca)
+        {
+            InitializeComponent();
+            this.marca = marca;
+            Text = "Modificar una Marca";
+        }
+
+        
         private void btnAceptarMarca_Click(object sender, EventArgs e)
         {
-            Marca marca = new Marca();
+            
             MarcaNegocio negocio = new MarcaNegocio();
             try
             {
+                if (marca == null)
+                {
+                    marca = new Marca();
+                }
                 marca.Descripcion = txtNombreMarca.Text;
 
-                negocio.agregar(marca);
-                MessageBox.Show("La marca fue agregada.");
+                if (marca.Id != 0)
+                {
+                    negocio.modificar(marca);
+                    MessageBox.Show("La marca fue modificada.");
+                }
+                else
+                {
+                    negocio.agregar(marca);
+                    MessageBox.Show("La marca fue agregada.");
+                }
                 Close();
 
 
@@ -47,7 +69,10 @@ namespace CapaPresentacion
 
         private void FrmAltaMarca_Load(object sender, EventArgs e)
         {
-
+            if(marca != null)
+            {
+                txtNombreMarca.Text = marca.Descripcion;
+            }
         }
     }
 }
