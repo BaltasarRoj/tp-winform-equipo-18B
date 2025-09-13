@@ -74,5 +74,14 @@ namespace CapaPresentacion
                 txtNombreMarca.Text = marca.Descripcion;
             }
         }
+
+        private void txtNombreMarca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite letras y Backspace
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != ' ')
+            {
+                e.Handled = true; // Bloquea la tecla
+            }
+        }
     }
 }
