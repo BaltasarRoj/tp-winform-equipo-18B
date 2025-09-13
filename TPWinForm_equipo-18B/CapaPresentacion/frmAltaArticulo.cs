@@ -39,7 +39,10 @@ namespace CapaPresentacion
             ArticuloNegocio negocio = new ArticuloNegocio();    
             try
             {
-                 if (articulo == null)
+                if (!validarArticulo())
+                    return;
+
+                if (articulo == null)
                     articulo = new Articulo();
 
                 articulo.codigoArticulo = txtCodigo.Text;
@@ -83,8 +86,6 @@ namespace CapaPresentacion
 
             try
             {
-                //if (validarArticulo())
-                    
                 cboMarca.DataSource = marcaNegocio.listar();
                 cboMarca.ValueMember = "Id";
                 cboMarca.DisplayMember = "Descripcion";
@@ -94,6 +95,8 @@ namespace CapaPresentacion
 
 
                 if (articulo != null) {
+                    
+                   
                     txtCodigo.Text = articulo.codigoArticulo;
                     txtNombre.Text = articulo.nombre;
                     cboMarca.SelectedValue = articulo.Marca.Id;
@@ -134,28 +137,62 @@ namespace CapaPresentacion
         }
 
 
-        private bool SoloNumeros( string cadena) {
+       /* private bool SoloNumeros( string cadena) {
             foreach (char caracter in cadena) {
                 if (!(char.IsNumber(caracter)))
                     return false;
             }
 
             return true;
-        }
+        }*/
 
         private bool validarArticulo() {
-            if (!SoloNumeros(txtPrecio.Text)) {
+
+            if (string.IsNullOrEmpty(txtCodigo.Text)) {
+                MessageBox.Show("El codigo de articulo no puede estar vacio..");
+                return false;
+            }
+
+            if (cboMarca.SelectedIndex < 0) {
+                MessageBox.Show("seleccione la marca del articulo...");
+                return false;
+            }
+            
+            if (cboCategoria.SelectedIndex < 0) {
+                MessageBox.Show("seleccione el tipo de categoria del articulo...");
+                return false;
+            }
+
+            
+            if (string.IsNullOrEmpty(txtNombre.Text)) {
+                MessageBox.Show("El Nombre de articulo no puede estar vacio..");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtPrecio.Text))
+            {
+                MessageBox.Show("Debe ingresar un precio.");
+                return false;
+            }
+
+            if (!decimal.TryParse(txtPrecio.Text, out decimal precio)) {
                 MessageBox.Show("El precio debe contener solo Numeros..");
                 return false;
             }
 
-            decimal precio = decimal.Parse(txtPrecio.Text);
             if (precio < 0 ) {
                 MessageBox.Show("El precio no puede ser negativo..");
                     return false;
             }
-                
-                
+
+            if (string.IsNullOrEmpty(txtUrlImagen.Text))
+            {
+                MessageBox.Show("Este articulo requiere una imagen...");
+                return false;
+            }
+
+
+
             return true;
         }
 
