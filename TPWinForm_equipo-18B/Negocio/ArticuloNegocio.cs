@@ -66,7 +66,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("insert into ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,Precio) values (@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@Precio); insert into IMAGENES (ImagenUrl,IdArticulo) values (@imagen,@idarticulo)");
+                datos.setearConsulta("insert into ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,Precio) values (@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@Precio); insert into IMAGENES (ImagenUrl,IdArticulo) values (@imagen,SCOPE_IDENTITY())");
                 datos.setearParametro("@Codigo", nuevo.codigoArticulo);
                 datos.setearParametro("@Nombre", nuevo.nombre);
                 datos.setearParametro("@IdMarca", nuevo.Marca.Id);
@@ -74,7 +74,6 @@ namespace Negocio
                 datos.setearParametro("@Descripcion", nuevo.descripcion);
                 datos.setearParametro("@Precio", nuevo.precio);
                 datos.setearParametro("@imagen",nuevo.UrlImagen);
-                datos.setearParametro("@idarticulo",nuevo.id);
 
                 datos.ejecutarAccion();
 
@@ -126,8 +125,23 @@ namespace Negocio
         }
 
 
-        public void EliminarArticulo(Articulo eliminar) { 
-        
+        public void EliminarArticulo(int id) { 
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("delete from ARTICULOS where id = @id");
+                datos.setearParametro("@id",id);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
         }
 
 

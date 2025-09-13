@@ -87,7 +87,7 @@
             this.lblPrecio.Size = new System.Drawing.Size(55, 16);
             this.lblPrecio.TabIndex = 3;
             this.lblPrecio.Text = "Precio : ";
-            this.lblPrecio.Click += new System.EventHandler(this.lblPrecio_Click);
+          
             // 
             // txtCodigo
             // 
@@ -162,7 +162,7 @@
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(179, 24);
             this.cboMarca.TabIndex = 2;
-            this.cboMarca.SelectedIndexChanged += new System.EventHandler(this.cboMarca_SelectedIndexChanged);
+
             // 
             // cboCategoria
             // 

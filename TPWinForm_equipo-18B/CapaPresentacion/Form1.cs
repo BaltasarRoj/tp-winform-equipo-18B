@@ -158,6 +158,29 @@ namespace CapaPresentacion
             FrmMarca frmMarca = new FrmMarca(); 
             frmMarca.ShowDialog();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo eliminado;
+            try
+            {
+
+                DialogResult respuesta = MessageBox.Show("seguro que vas a eliminarlo?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    eliminado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    negocio.EliminarArticulo(eliminado.id);
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
     
 }

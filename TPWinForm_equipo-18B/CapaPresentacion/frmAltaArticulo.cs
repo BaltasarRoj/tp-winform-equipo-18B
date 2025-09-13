@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocio;
+using System.Security.AccessControl;
 
 namespace CapaPresentacion
 {
@@ -75,11 +76,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void lblPrecio_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmAltaArticulo_Load(object sender, EventArgs e)
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
@@ -87,6 +83,8 @@ namespace CapaPresentacion
 
             try
             {
+                //if (validarArticulo())
+                    
                 cboMarca.DataSource = marcaNegocio.listar();
                 cboMarca.ValueMember = "Id";
                 cboMarca.DisplayMember = "Descripcion";
@@ -116,11 +114,6 @@ namespace CapaPresentacion
 
         }
 
-        private void cboMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtUrlImagen_Leave(object sender, EventArgs e)
         {
             cargarImagen(txtUrlImagen.Text);
@@ -139,5 +132,34 @@ namespace CapaPresentacion
             }
 
         }
+
+
+        private bool SoloNumeros( string cadena) {
+            foreach (char caracter in cadena) {
+                if (!(char.IsNumber(caracter)))
+                    return false;
+            }
+
+            return true;
+        }
+
+        private bool validarArticulo() {
+            if (!SoloNumeros(txtPrecio.Text)) {
+                MessageBox.Show("El precio debe contener solo Numeros..");
+                return false;
+            }
+
+            decimal precio = decimal.Parse(txtPrecio.Text);
+            if (precio < 0 ) {
+                MessageBox.Show("El precio no puede ser negativo..");
+                    return false;
+            }
+                
+                
+            return true;
+        }
+
     }
+
+
 }

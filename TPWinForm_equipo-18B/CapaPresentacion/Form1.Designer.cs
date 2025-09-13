@@ -39,6 +39,7 @@
             this.navegaciónEntreVentanasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.admistrarCategoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarMarcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -48,23 +49,21 @@
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulos.Location = new System.Drawing.Point(13, 118);
-            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvArticulos.Location = new System.Drawing.Point(10, 96);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.RowHeadersWidth = 51;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(985, 316);
+            this.dgvArticulos.Size = new System.Drawing.Size(739, 257);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(13, 464);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregar.Location = new System.Drawing.Point(10, 377);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(112, 37);
+            this.btnAgregar.Size = new System.Drawing.Size(84, 30);
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -72,10 +71,9 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(279, 464);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificar.Location = new System.Drawing.Point(130, 377);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(112, 37);
+            this.btnModificar.Size = new System.Drawing.Size(84, 30);
             this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -83,10 +81,9 @@
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(1021, 118);
-            this.pbxArticulo.Margin = new System.Windows.Forms.Padding(4);
+            this.pbxArticulo.Location = new System.Drawing.Point(766, 96);
             this.pbxArticulo.Name = "pbxArticulo";
-            this.pbxArticulo.Size = new System.Drawing.Size(315, 315);
+            this.pbxArticulo.Size = new System.Drawing.Size(236, 256);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 3;
             this.pbxArticulo.TabStop = false;
@@ -95,11 +92,11 @@
             // btnExitPrincipal
             // 
             this.btnExitPrincipal.FlatAppearance.BorderSize = 3;
-            this.btnExitPrincipal.Location = new System.Drawing.Point(1120, 464);
-            this.btnExitPrincipal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExitPrincipal.Location = new System.Drawing.Point(840, 377);
+            this.btnExitPrincipal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExitPrincipal.Name = "btnExitPrincipal";
-            this.btnExitPrincipal.Size = new System.Drawing.Size(111, 34);
-            this.btnExitPrincipal.TabIndex = 5;
+            this.btnExitPrincipal.Size = new System.Drawing.Size(83, 28);
+            this.btnExitPrincipal.TabIndex = 4;
             this.btnExitPrincipal.Text = "SALIR";
             this.btnExitPrincipal.UseVisualStyleBackColor = true;
             this.btnExitPrincipal.Click += new System.EventHandler(this.btnExitPrincipal_Click);
@@ -107,17 +104,19 @@
             // lblFiltro
             // 
             this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Location = new System.Drawing.Point(10, 67);
+            this.lblFiltro.Location = new System.Drawing.Point(8, 54);
+            this.lblFiltro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(81, 16);
+            this.lblFiltro.Size = new System.Drawing.Size(64, 13);
             this.lblFiltro.TabIndex = 6;
             this.lblFiltro.Text = "Filtro rápido:";
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(109, 64);
+            this.txtFiltro.Location = new System.Drawing.Point(82, 52);
+            this.txtFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(252, 22);
+            this.txtFiltro.Size = new System.Drawing.Size(190, 20);
             this.txtFiltro.TabIndex = 7;
             this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             this.txtFiltro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFiltro_KeyPress);
@@ -129,7 +128,8 @@
             this.navegaciónEntreVentanasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1353, 33);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1015, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -139,28 +139,39 @@
             this.admistrarCategoríasToolStripMenuItem,
             this.administrarMarcaToolStripMenuItem});
             this.navegaciónEntreVentanasToolStripMenuItem.Name = "navegaciónEntreVentanasToolStripMenuItem";
-            this.navegaciónEntreVentanasToolStripMenuItem.Size = new System.Drawing.Size(239, 29);
+            this.navegaciónEntreVentanasToolStripMenuItem.Size = new System.Drawing.Size(162, 20);
             this.navegaciónEntreVentanasToolStripMenuItem.Text = "Navegación entre ventanas";
             // 
             // admistrarCategoríasToolStripMenuItem
             // 
             this.admistrarCategoríasToolStripMenuItem.Name = "admistrarCategoríasToolStripMenuItem";
-            this.admistrarCategoríasToolStripMenuItem.Size = new System.Drawing.Size(257, 30);
+            this.admistrarCategoríasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.admistrarCategoríasToolStripMenuItem.Text = "Admistrar Categoría";
             this.admistrarCategoríasToolStripMenuItem.Click += new System.EventHandler(this.admistrarCategoríasToolStripMenuItem_Click);
             // 
             // administrarMarcaToolStripMenuItem
             // 
             this.administrarMarcaToolStripMenuItem.Name = "administrarMarcaToolStripMenuItem";
-            this.administrarMarcaToolStripMenuItem.Size = new System.Drawing.Size(257, 30);
+            this.administrarMarcaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.administrarMarcaToolStripMenuItem.Text = "Administrar Marca";
             this.administrarMarcaToolStripMenuItem.Click += new System.EventHandler(this.administrarMarcaToolStripMenuItem_Click);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(253, 377);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(84, 30);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "Eiminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1353, 532);
+            this.ClientSize = new System.Drawing.Size(1015, 432);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.btnExitPrincipal);
@@ -171,7 +182,6 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -199,6 +209,7 @@
         private System.Windows.Forms.ToolStripMenuItem navegaciónEntreVentanasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem admistrarCategoríasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarMarcaToolStripMenuItem;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
 
