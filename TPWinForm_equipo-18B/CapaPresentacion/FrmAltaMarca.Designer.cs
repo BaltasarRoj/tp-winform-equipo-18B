@@ -79,6 +79,9 @@
             this.Controls.Add(this.btnAceptarMarca);
             this.Controls.Add(this.txtNombreMarca);
             this.Controls.Add(this.lblNombreMarca);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmAltaMarca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar una Marca";

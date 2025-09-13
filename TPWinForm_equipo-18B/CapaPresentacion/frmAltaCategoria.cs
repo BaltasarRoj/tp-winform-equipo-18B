@@ -29,7 +29,7 @@ namespace CapaPresentacion
 
                 negocio.agregar(categoria);
                 MessageBox.Show("La categoría fue agregada.");
-                Close();
+                //Close();
             }
             catch (Exception ex)
             {

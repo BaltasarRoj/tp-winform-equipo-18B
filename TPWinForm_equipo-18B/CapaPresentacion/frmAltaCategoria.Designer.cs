@@ -40,9 +40,10 @@
             // 
             // btnCancelarCategoria
             // 
-            this.btnCancelarCategoria.Location = new System.Drawing.Point(57, 157);
+            this.btnCancelarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnCancelarCategoria.Location = new System.Drawing.Point(47, 234);
             this.btnCancelarCategoria.Name = "btnCancelarCategoria";
-            this.btnCancelarCategoria.Size = new System.Drawing.Size(75, 28);
+            this.btnCancelarCategoria.Size = new System.Drawing.Size(86, 56);
             this.btnCancelarCategoria.TabIndex = 7;
             this.btnCancelarCategoria.Text = "Cancelar";
             this.btnCancelarCategoria.UseVisualStyleBackColor = true;
@@ -50,9 +51,10 @@
             // 
             // btnAceptarCategoria
             // 
-            this.btnAceptarCategoria.Location = new System.Drawing.Point(57, 99);
+            this.btnAceptarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnAceptarCategoria.Location = new System.Drawing.Point(47, 31);
             this.btnAceptarCategoria.Name = "btnAceptarCategoria";
-            this.btnAceptarCategoria.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptarCategoria.Size = new System.Drawing.Size(86, 51);
             this.btnAceptarCategoria.TabIndex = 6;
             this.btnAceptarCategoria.Text = "Agregar";
             this.btnAceptarCategoria.UseVisualStyleBackColor = true;
@@ -60,7 +62,7 @@
             // 
             // txtNombreCategoria
             // 
-            this.txtNombreCategoria.Location = new System.Drawing.Point(422, 244);
+            this.txtNombreCategoria.Location = new System.Drawing.Point(422, 268);
             this.txtNombreCategoria.Name = "txtNombreCategoria";
             this.txtNombreCategoria.Size = new System.Drawing.Size(230, 22);
             this.txtNombreCategoria.TabIndex = 5;
@@ -68,28 +70,32 @@
             // lblNombreCategoria
             // 
             this.lblNombreCategoria.AutoSize = true;
-            this.lblNombreCategoria.Location = new System.Drawing.Point(297, 250);
+            this.lblNombreCategoria.Location = new System.Drawing.Point(297, 274);
             this.lblNombreCategoria.Name = "lblNombreCategoria";
             this.lblNombreCategoria.Size = new System.Drawing.Size(69, 16);
             this.lblNombreCategoria.TabIndex = 4;
-            this.lblNombreCategoria.Text = "Categoria:";
+            this.lblNombreCategoria.Text = "Categoría:";
             // 
             // dgvCategorias
             // 
             this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCategorias.Location = new System.Drawing.Point(176, 69);
+            this.dgvCategorias.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvCategorias.Location = new System.Drawing.Point(176, 31);
+            this.dgvCategorias.MultiSelect = false;
             this.dgvCategorias.Name = "dgvCategorias";
             this.dgvCategorias.RowHeadersWidth = 51;
             this.dgvCategorias.RowTemplate.Height = 24;
-            this.dgvCategorias.Size = new System.Drawing.Size(476, 150);
+            this.dgvCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCategorias.Size = new System.Drawing.Size(476, 188);
             this.dgvCategorias.TabIndex = 8;
             this.dgvCategorias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnModificarCategoria
             // 
-            this.btnModificarCategoria.Location = new System.Drawing.Point(57, 69);
+            this.btnModificarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnModificarCategoria.Location = new System.Drawing.Point(47, 97);
             this.btnModificarCategoria.Name = "btnModificarCategoria";
-            this.btnModificarCategoria.Size = new System.Drawing.Size(75, 23);
+            this.btnModificarCategoria.Size = new System.Drawing.Size(86, 51);
             this.btnModificarCategoria.TabIndex = 9;
             this.btnModificarCategoria.Text = "Modificar";
             this.btnModificarCategoria.UseVisualStyleBackColor = true;
@@ -97,9 +103,10 @@
             // 
             // btnEliminarCategoria
             // 
-            this.btnEliminarCategoria.Location = new System.Drawing.Point(57, 128);
+            this.btnEliminarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnEliminarCategoria.Location = new System.Drawing.Point(47, 168);
             this.btnEliminarCategoria.Name = "btnEliminarCategoria";
-            this.btnEliminarCategoria.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarCategoria.Size = new System.Drawing.Size(86, 51);
             this.btnEliminarCategoria.TabIndex = 10;
             this.btnEliminarCategoria.Text = "Eliminar";
             this.btnEliminarCategoria.UseVisualStyleBackColor = true;
@@ -117,8 +124,12 @@
             this.Controls.Add(this.btnAceptarCategoria);
             this.Controls.Add(this.txtNombreCategoria);
             this.Controls.Add(this.lblNombreCategoria);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAltaCategoria";
-            this.Text = "Gestionar Categoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gestionar Categoría";
             this.Load += new System.EventHandler(this.frmAltaCategoria_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
             this.ResumeLayout(false);

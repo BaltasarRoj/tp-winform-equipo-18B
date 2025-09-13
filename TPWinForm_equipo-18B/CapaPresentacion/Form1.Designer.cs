@@ -42,21 +42,23 @@
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulos.Location = new System.Drawing.Point(12, 61);
+            this.dgvArticulos.Location = new System.Drawing.Point(16, 75);
+            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.RowHeadersWidth = 51;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(739, 257);
+            this.dgvArticulos.Size = new System.Drawing.Size(985, 316);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(12, 342);
+            this.btnAgregar.Location = new System.Drawing.Point(16, 421);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(84, 30);
+            this.btnAgregar.Size = new System.Drawing.Size(112, 37);
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -64,9 +66,10 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(122, 342);
+            this.btnModificar.Location = new System.Drawing.Point(163, 421);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(84, 30);
+            this.btnModificar.Size = new System.Drawing.Size(112, 37);
             this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -74,9 +77,10 @@
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(768, 61);
+            this.pbxArticulo.Location = new System.Drawing.Point(1024, 75);
+            this.pbxArticulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbxArticulo.Name = "pbxArticulo";
-            this.pbxArticulo.Size = new System.Drawing.Size(236, 256);
+            this.pbxArticulo.Size = new System.Drawing.Size(315, 315);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 3;
             this.pbxArticulo.TabStop = false;
@@ -84,10 +88,10 @@
             // 
             // btnEdiCategoria
             // 
-            this.btnEdiCategoria.Location = new System.Drawing.Point(230, 342);
-            this.btnEdiCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEdiCategoria.Location = new System.Drawing.Point(307, 421);
+            this.btnEdiCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEdiCategoria.Name = "btnEdiCategoria";
-            this.btnEdiCategoria.Size = new System.Drawing.Size(109, 30);
+            this.btnEdiCategoria.Size = new System.Drawing.Size(145, 37);
             this.btnEdiCategoria.TabIndex = 4;
             this.btnEdiCategoria.Text = "Editar Categorias";
             this.btnEdiCategoria.UseVisualStyleBackColor = true;
@@ -95,29 +99,33 @@
             // 
             // btnExitPrincipal
             // 
-            this.btnExitPrincipal.Location = new System.Drawing.Point(379, 344);
-            this.btnExitPrincipal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExitPrincipal.FlatAppearance.BorderSize = 3;
+            this.btnExitPrincipal.Location = new System.Drawing.Point(1123, 421);
+            this.btnExitPrincipal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExitPrincipal.Name = "btnExitPrincipal";
-            this.btnExitPrincipal.Size = new System.Drawing.Size(83, 28);
+            this.btnExitPrincipal.Size = new System.Drawing.Size(111, 34);
             this.btnExitPrincipal.TabIndex = 5;
-            this.btnExitPrincipal.Text = "Salir";
+            this.btnExitPrincipal.Text = "SALIR";
             this.btnExitPrincipal.UseVisualStyleBackColor = true;
             this.btnExitPrincipal.Click += new System.EventHandler(this.btnExitPrincipal_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1015, 397);
+            this.ClientSize = new System.Drawing.Size(1353, 489);
             this.Controls.Add(this.btnExitPrincipal);
             this.Controls.Add(this.btnEdiCategoria);
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvArticulos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Articulos";
+            this.Text = "Menú de Artículos";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
