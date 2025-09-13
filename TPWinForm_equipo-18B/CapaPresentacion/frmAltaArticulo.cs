@@ -20,7 +20,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-        
+
         public frmAltaArticulo(Articulo articulo)
         {
             InitializeComponent();
@@ -36,11 +36,16 @@ namespace CapaPresentacion
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             //Articulo nuevo = new Articulo();    
-            ArticuloNegocio negocio = new ArticuloNegocio();    
+            ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
                 if (!validarArticulo())
                     return;
+
+                if (ExisteCodigo(txtCodigo.Text)) {
+                    MessageBox.Show("el codigo ingresado ya existe. Ingrese otro codigo");
+                    return;
+                }
 
                 if (articulo == null)
                     articulo = new Articulo();
@@ -50,7 +55,7 @@ namespace CapaPresentacion
                 articulo.Marca = (Marca)cboMarca.SelectedItem;
                 articulo.tipo = (Categoria)cboCategoria.SelectedItem;
                 articulo.descripcion = txtDescripcion.Text;
-                articulo.precio =  decimal.Parse(txtPrecio.Text);
+                articulo.precio = decimal.Parse(txtPrecio.Text);
                 articulo.UrlImagen = txtUrlImagen.Text;
 
 
@@ -61,8 +66,8 @@ namespace CapaPresentacion
                     MessageBox.Show("Modificado correctamente");
 
                 }
-                else { 
-                
+                else {
+
                     negocio.agregarArticulo(articulo);
                     MessageBox.Show("agregado correctamente");
 
@@ -70,7 +75,7 @@ namespace CapaPresentacion
 
 
                 Close();
-            
+
             }
             catch (Exception ex)
             {
@@ -82,7 +87,7 @@ namespace CapaPresentacion
         private void frmAltaArticulo_Load(object sender, EventArgs e)
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
-            CategoriaNegocio categoriaNegocio= new CategoriaNegocio();
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
             try
             {
@@ -95,8 +100,8 @@ namespace CapaPresentacion
 
 
                 if (articulo != null) {
-                    
-                   
+
+
                     txtCodigo.Text = articulo.codigoArticulo;
                     txtNombre.Text = articulo.nombre;
                     cboMarca.SelectedValue = articulo.Marca.Id;
@@ -106,7 +111,7 @@ namespace CapaPresentacion
                     txtUrlImagen.Text = articulo.UrlImagen;
                     cargarImagen(articulo.UrlImagen);
                 }
-            
+
             }
             catch (Exception ex)
             {
@@ -137,14 +142,14 @@ namespace CapaPresentacion
         }
 
 
-       /* private bool SoloNumeros( string cadena) {
-            foreach (char caracter in cadena) {
-                if (!(char.IsNumber(caracter)))
-                    return false;
-            }
+        /* private bool SoloNumeros( string cadena) {
+             foreach (char caracter in cadena) {
+                 if (!(char.IsNumber(caracter)))
+                     return false;
+             }
 
-            return true;
-        }*/
+             return true;
+         }*/
 
         private bool validarArticulo() {
 
@@ -157,13 +162,13 @@ namespace CapaPresentacion
                 MessageBox.Show("seleccione la marca del articulo...");
                 return false;
             }
-            
+
             if (cboCategoria.SelectedIndex < 0) {
                 MessageBox.Show("seleccione el tipo de categoria del articulo...");
                 return false;
             }
 
-            
+
             if (string.IsNullOrEmpty(txtNombre.Text)) {
                 MessageBox.Show("El Nombre de articulo no puede estar vacio..");
                 return false;
@@ -180,9 +185,9 @@ namespace CapaPresentacion
                 return false;
             }
 
-            if (precio < 0 ) {
+            if (precio < 0) {
                 MessageBox.Show("El precio no puede ser negativo..");
-                    return false;
+                return false;
             }
 
             if (string.IsNullOrEmpty(txtUrlImagen.Text))
@@ -196,7 +201,34 @@ namespace CapaPresentacion
             return true;
         }
 
+
+
+        private bool ExisteCodigo (string codigo) {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("select Codigo from ARTICULOS where Codigo = @codigo");
+                datos.setearParametro("@codigo", codigo);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                    return true;
+                
+                else 
+                    return false;
+
+            }
+            catch (Exception)
+            {
+                throw;
+                
+            }
+            finally {
+                datos.cerrarConexion();
+            }
+
+            
+        }
     }
-
-
 }
