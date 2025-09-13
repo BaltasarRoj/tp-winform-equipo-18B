@@ -129,7 +129,7 @@
             this.MinimizeBox = false;
             this.Name = "frmAltaCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestionar Categoría";
+            this.Text = "Administrar Categoría";
             this.Load += new System.EventHandler(this.frmAltaCategoria_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
             this.ResumeLayout(false);

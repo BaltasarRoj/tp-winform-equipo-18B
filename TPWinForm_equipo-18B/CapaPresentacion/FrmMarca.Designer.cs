@@ -96,7 +96,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmMarca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Listado de Marcas";
+            this.Text = "Administrar Marca";
             this.Load += new System.EventHandler(this.FrmMarca_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).EndInit();
             this.ResumeLayout(false);

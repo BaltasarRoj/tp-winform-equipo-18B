@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,12 @@ namespace CapaPresentacion
                 dgvArticulos.DataSource = listaArticulo;
                 dgvArticulos.Columns["UrlImagen"].Visible = false;
                 dgvArticulos.Columns["ID"].Visible = false;
+
+                //Formatear columna Precio con moneda Argentina
+                var cultureAR = new CultureInfo("es-AR");
+                dgvArticulos.Columns["precio"].DefaultCellStyle.FormatProvider = cultureAR;
+                dgvArticulos.Columns["precio"].DefaultCellStyle.Format = "C2";
+
                 pbxArticulo.Load(listaArticulo[0].UrlImagen);
             }
             catch (Exception ex)
@@ -138,6 +145,18 @@ namespace CapaPresentacion
             dgvArticulos.DataSource = listaFiltrada;
             dgvArticulos.Columns["UrlImagen"].Visible = false;
             dgvArticulos.Columns["ID"].Visible = false;
+        }
+
+        private void admistrarCategoríasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaCategoria ventanaCat = new frmAltaCategoria();
+            ventanaCat.ShowDialog();
+        }
+
+        private void administrarMarcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMarca frmMarca = new FrmMarca(); 
+            frmMarca.ShowDialog();
         }
     }
     
