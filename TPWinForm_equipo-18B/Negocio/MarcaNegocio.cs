@@ -31,9 +31,9 @@ namespace Negocio
 
                 return lista;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                throw ex;
+                throw ;
             }
             finally
             {
@@ -51,10 +51,10 @@ namespace Negocio
                 datos.setearParametro("@descripcion", nueva.Descripcion);
                 datos.ejecutarAccion();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw ex;
+                throw ;
             }
             finally
             {
@@ -73,10 +73,10 @@ namespace Negocio
 
                 datos.ejecutarAccion();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw ex;
+                throw ;
             }
             finally
             {
@@ -94,10 +94,10 @@ namespace Negocio
             {
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw ex;
+                throw ;
             }
         }
 
