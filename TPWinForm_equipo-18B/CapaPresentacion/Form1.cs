@@ -129,6 +129,7 @@ namespace CapaPresentacion
             List<Articulo> listaFiltrada;
             string filtro = txtFiltro.Text;
 
+            //aca se me ocurrio que empiece a filtrar a partir de 3 caracterres
             if (filtro.Length >= 3)
             {
                 listaFiltrada = listaArticulo.FindAll(item => item.nombre.ToUpper().Contains(filtro.ToUpper()) ||
@@ -145,7 +146,15 @@ namespace CapaPresentacion
             dgvArticulos.DataSource = listaFiltrada;
             dgvArticulos.Columns["UrlImagen"].Visible = false;
             dgvArticulos.Columns["ID"].Visible = false;
+
+            //aca los botones se habilitan si hay algo en la lista filtrada
+            //.Count devuelve la cantidad de elementos que tiene la lista.
+            //> 0 devuelve true si hay al menos un elemento (o false si está vacía).
+            // por ultimo si es true cambia la propiedad Enabled a true, si es false la cambia a false.
+            btnModificar.Enabled = listaFiltrada.Count > 0; 
+            btnEliminar.Enabled = listaFiltrada.Count > 0;
         }
+
 
         private void admistrarCategoríasToolStripMenuItem_Click(object sender, EventArgs e)
         {

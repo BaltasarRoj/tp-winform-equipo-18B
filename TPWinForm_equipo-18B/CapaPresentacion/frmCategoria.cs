@@ -32,9 +32,10 @@ namespace CapaPresentacion
             if (categoria != null)
                 txtNombreCategoria.Text = categoria.Descripcion;
         }
-
+        
         private void txtNombreCategoria_TextChanged(object sender, EventArgs e)
         {
+            
         }
 
         private void btnAceptarCategoria_Click(object sender, EventArgs e)

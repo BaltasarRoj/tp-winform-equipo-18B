@@ -89,5 +89,10 @@ namespace CapaPresentacion
                 e.Handled = true; // Bloquea la tecla
             }
         }
+
+        private void txtNombreMarca_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
