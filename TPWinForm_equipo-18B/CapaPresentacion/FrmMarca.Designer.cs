@@ -48,7 +48,6 @@
             this.dgvMarca.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMarca.Size = new System.Drawing.Size(400, 400);
             this.dgvMarca.TabIndex = 0;
-            this.dgvMarca.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarca_CellContentClick);
             // 
             // btnAgregarMarca
             // 

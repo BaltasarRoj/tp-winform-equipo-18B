@@ -90,9 +90,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void txtNombreMarca_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

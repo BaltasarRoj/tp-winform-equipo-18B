@@ -49,7 +49,6 @@
             this.txtNombreMarca.Name = "txtNombreMarca";
             this.txtNombreMarca.Size = new System.Drawing.Size(230, 22);
             this.txtNombreMarca.TabIndex = 1;
-            this.txtNombreMarca.TextChanged += new System.EventHandler(this.txtNombreMarca_TextChanged);
             this.txtNombreMarca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreMarca_KeyPress);
             // 
             // btnAceptarMarca

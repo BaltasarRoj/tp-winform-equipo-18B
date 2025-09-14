@@ -58,7 +58,8 @@ namespace CapaPresentacion
                 }
                 DialogResult confirmacion;
                 if (categoria.Id != 0)
-                    confirmacion = MessageBox.Show("¿Modificar categoría?");
+                    confirmacion = MessageBox.Show("¿Modificar categoría?", "Confirmación", MessageBoxButtons.OKCancel);
+
                 else
                     confirmacion = MessageBox.Show("¿Crear categoría?");
 
@@ -69,13 +70,13 @@ namespace CapaPresentacion
                 {
                     negocio.modificar(categoria);
                     Close();
-                    MessageBox.Show("categoria modificada.");
+                    MessageBox.Show("Categoría modificada.");
                 }
                 else
                 {
                     negocio.agregar(categoria);
                     Close();
-                    MessageBox.Show("categoria agregada.");
+                    MessageBox.Show("Categoría agregada.");
                 }
 
                 Close();
@@ -91,9 +92,7 @@ namespace CapaPresentacion
             this.Close();
         }
 
-        private void frmCategoria_Load(object sender, EventArgs e)
-        {
-        }
+        
 
         // se cambia en las propiedades (EVENTOS) del txt a KeyPress para poder anular las teclas numericas
         private void txtNombreCategoria_KeyPress(object sender, KeyPressEventArgs e)

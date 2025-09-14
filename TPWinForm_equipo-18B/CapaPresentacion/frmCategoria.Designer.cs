@@ -83,8 +83,8 @@
             this.Controls.Add(this.txtNombreCategoria);
             this.Controls.Add(this.lblNombreCategoria);
             this.Name = "frmCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Nueva Categoria";
-            this.Load += new System.EventHandler(this.frmCategoria_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
