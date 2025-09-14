@@ -41,6 +41,12 @@ namespace CapaPresentacion
                 }
                 marca.Descripcion = txtNombreMarca.Text;
 
+                if (string.IsNullOrWhiteSpace(marca.Descripcion))
+                {
+                    MessageBox.Show("Inserte el nombre de la Marca");
+                    return;
+                }
+
                 if (marca.Id != 0)
                 {
                     negocio.modificar(marca);

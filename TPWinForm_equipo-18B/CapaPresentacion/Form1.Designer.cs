@@ -40,6 +40,7 @@
             this.admistrarCategoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarMarcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.lblPrecioSeleccionado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -51,7 +52,7 @@
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulos.Location = new System.Drawing.Point(13, 118);
-            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.RowHeadersWidth = 51;
@@ -64,7 +65,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(13, 464);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(112, 37);
             this.btnAgregar.TabIndex = 1;
@@ -75,7 +76,7 @@
             // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(173, 464);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(112, 37);
             this.btnModificar.TabIndex = 2;
@@ -86,7 +87,7 @@
             // pbxArticulo
             // 
             this.pbxArticulo.Location = new System.Drawing.Point(1021, 118);
-            this.pbxArticulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbxArticulo.Margin = new System.Windows.Forms.Padding(4);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(315, 315);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -135,7 +136,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1353, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1353, 28);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -145,27 +146,27 @@
             this.admistrarCategoríasToolStripMenuItem,
             this.administrarMarcaToolStripMenuItem});
             this.navegaciónEntreVentanasToolStripMenuItem.Name = "navegaciónEntreVentanasToolStripMenuItem";
-            this.navegaciónEntreVentanasToolStripMenuItem.Size = new System.Drawing.Size(239, 29);
+            this.navegaciónEntreVentanasToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.navegaciónEntreVentanasToolStripMenuItem.Text = "Navegación entre ventanas";
             // 
             // admistrarCategoríasToolStripMenuItem
             // 
             this.admistrarCategoríasToolStripMenuItem.Name = "admistrarCategoríasToolStripMenuItem";
-            this.admistrarCategoríasToolStripMenuItem.Size = new System.Drawing.Size(257, 30);
+            this.admistrarCategoríasToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.admistrarCategoríasToolStripMenuItem.Text = "Admistrar Categoría";
             this.admistrarCategoríasToolStripMenuItem.Click += new System.EventHandler(this.admistrarCategoríasToolStripMenuItem_Click);
             // 
             // administrarMarcaToolStripMenuItem
             // 
             this.administrarMarcaToolStripMenuItem.Name = "administrarMarcaToolStripMenuItem";
-            this.administrarMarcaToolStripMenuItem.Size = new System.Drawing.Size(257, 30);
+            this.administrarMarcaToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.administrarMarcaToolStripMenuItem.Text = "Administrar Marca";
             this.administrarMarcaToolStripMenuItem.Click += new System.EventHandler(this.administrarMarcaToolStripMenuItem_Click);
             // 
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(337, 464);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(112, 37);
             this.btnEliminar.TabIndex = 3;
@@ -173,12 +174,21 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // lblPrecioSeleccionado
+            // 
+            this.lblPrecioSeleccionado.AutoSize = true;
+            this.lblPrecioSeleccionado.Location = new System.Drawing.Point(691, 98);
+            this.lblPrecioSeleccionado.Name = "lblPrecioSeleccionado";
+            this.lblPrecioSeleccionado.Size = new System.Drawing.Size(0, 16);
+            this.lblPrecioSeleccionado.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1353, 532);
+            this.Controls.Add(this.lblPrecioSeleccionado);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltro);
@@ -190,7 +200,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -219,6 +229,7 @@
         private System.Windows.Forms.ToolStripMenuItem admistrarCategoríasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarMarcaToolStripMenuItem;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label lblPrecioSeleccionado;
     }
 }
 

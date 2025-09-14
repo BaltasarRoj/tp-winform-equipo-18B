@@ -44,9 +44,11 @@ namespace CapaPresentacion
             try
             {
                 if (categoria == null)
+                {
                     categoria = new Categoria();
-
+                }
                 categoria.Descripcion = txtNombreCategoria.Text;
+
                 if (string.IsNullOrWhiteSpace(categoria.Descripcion))
                 {
                     MessageBox.Show("Inserte el nombre de la categoria");

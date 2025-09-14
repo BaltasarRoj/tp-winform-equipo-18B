@@ -42,10 +42,11 @@ namespace CapaPresentacion
                 if (!validarArticulo())
                     return;
 
-                if (ExisteCodigo(txtCodigo.Text)) {
+               /* if (ExisteCodigo(txtCodigo.Text)) {
                     MessageBox.Show("el codigo ingresado ya existe. Ingrese otro codigo");
                     return;
                 }
+               */
 
                 if (articulo == null)
                     articulo = new Articulo();
