@@ -59,15 +59,15 @@ namespace Negocio
             }
         }
 
-        public void modificar(Categoria categoria)
+        public void modificar(Categoria modificar)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
                 datos.setearConsulta("UPDATE CATEGORIAS SET Descripcion = @Descripcion WHERE Id = @Id");
-                datos.setearParametro("@Descripcion", categoria.Descripcion);
-                datos.setearParametro("@Id", categoria.Id);
+                datos.setearParametro("@Descripcion", modificar.Descripcion);
+                datos.setearParametro("@Id", modificar.Id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -79,6 +79,7 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
 
         public void eliminar(int id)
         {

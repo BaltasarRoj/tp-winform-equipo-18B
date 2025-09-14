@@ -18,24 +18,7 @@ namespace CapaPresentacion
             this.categoria = categoria;
         }
 
-        private void btnAceptarCategoria_Click(object sender, EventArgs e)
-        {
-            Categoria categoria = new Categoria();
-            CategoriaNegocio negocio = new CategoriaNegocio();
-
-            try
-            {
-                categoria.Descripcion = txtNombreCategoria.Text;
-
-                negocio.agregar(categoria);
-                MessageBox.Show("La categoría fue agregada.");
-                //Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
+        
 
         private void btnCancelarCategoria_Click(object sender, EventArgs e)
         {
@@ -75,24 +58,55 @@ namespace CapaPresentacion
 
         private void btnModificarCategoria_Click(object sender, EventArgs e)
         {
-            Categoria seleccionado;
-            seleccionado = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
+            if (dgvCategorias.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione una categoria para modificar.");
+                return;
+            }
 
-            frmAltaCategoria modificar = new frmAltaCategoria(seleccionado);
+            var seleccionado = dgvCategorias.CurrentRow.DataBoundItem as Categoria;
+            if (seleccionado == null)
+            {
+                MessageBox.Show("No se pudo obtener la categoria seleccionada.");
+                return;
+            }
+
+            frmCategoria modificar = new frmCategoria(seleccionado);
             modificar.ShowDialog();
             cargar();
         }
 
+
         private void btnEliminarCategoria_Click(object sender, EventArgs e)
         {
-            if (dgvCategorias.CurrentRow != null)
+            Categoria seleccionado = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
+
+            DialogResult confirmacion = MessageBox.Show(
+                "¿Confirmar eliminacion de esta categoría?"
+            );
+
+            if (confirmacion == DialogResult.No)
+                return;
+
+            try
             {
-                Categoria seleccionado = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
                 CategoriaNegocio negocio = new CategoriaNegocio();
                 negocio.eliminar(seleccionado.Id);
                 MessageBox.Show("categoria eliminada");
                 cargar();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+
+        private void btnAgregarCategoria_Click(object sender, EventArgs e)
+        {
+            frmCategoria marca = new frmCategoria();
+            marca.ShowDialog();
+            cargar();
         }
     }
 }

@@ -53,7 +53,7 @@
             // 
             // btnAceptarMarca
             // 
-            this.btnAceptarMarca.Location = new System.Drawing.Point(77, 171);
+            this.btnAceptarMarca.Location = new System.Drawing.Point(91, 163);
             this.btnAceptarMarca.Name = "btnAceptarMarca";
             this.btnAceptarMarca.Size = new System.Drawing.Size(88, 40);
             this.btnAceptarMarca.TabIndex = 2;
@@ -63,7 +63,7 @@
             // 
             // btnCancelarMarca
             // 
-            this.btnCancelarMarca.Location = new System.Drawing.Point(331, 171);
+            this.btnCancelarMarca.Location = new System.Drawing.Point(345, 163);
             this.btnCancelarMarca.Name = "btnCancelarMarca";
             this.btnCancelarMarca.Size = new System.Drawing.Size(88, 40);
             this.btnCancelarMarca.TabIndex = 3;
