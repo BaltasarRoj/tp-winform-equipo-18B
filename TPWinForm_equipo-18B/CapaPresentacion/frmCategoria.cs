@@ -16,7 +16,6 @@ namespace CapaPresentacion
     public partial class frmCategoria : Form
     {
         private Categoria categoria;
-
         public frmCategoria()
         {
             InitializeComponent();
@@ -37,12 +36,12 @@ namespace CapaPresentacion
         {
             
         }
-        
 
+        
         private void btnAceptarCategoria_Click(object sender, EventArgs e)
         {
-            CategoriaNegocio negocio = new CategoriaNegocio();
 
+            CategoriaNegocio negocio = new CategoriaNegocio();
             try
             {
                 if (categoria == null)
@@ -53,37 +52,25 @@ namespace CapaPresentacion
 
                 if (string.IsNullOrWhiteSpace(categoria.Descripcion))
                 {
-                    MessageBox.Show("Inserte el nombre de la categoria");
+                    MessageBox.Show("Inserte el nombre de la Marca");
                     return;
                 }
-                DialogResult confirmacion;
-                if (categoria.Id != 0)
-                    confirmacion = MessageBox.Show("¿Modificar categoría?", "Confirmación", MessageBoxButtons.OKCancel);
-
-                else
-                    confirmacion = MessageBox.Show("¿Crear categoría?");
-
-                if (confirmacion == DialogResult.No)
-                    return;
 
                 if (categoria.Id != 0)
                 {
                     negocio.modificar(categoria);
-                    Close();
-                    MessageBox.Show("Categoría modificada.");
+                    MessageBox.Show("La Categoris fue modificada.");
                 }
                 else
                 {
                     negocio.agregar(categoria);
-                    Close();
-                    MessageBox.Show("Categoría agregada.");
+                    MessageBox.Show("La Categoria fue agregada.");
                 }
-
                 Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(ex.ToString());
             }
         }
 
