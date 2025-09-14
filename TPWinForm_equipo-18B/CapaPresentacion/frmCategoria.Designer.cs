@@ -41,6 +41,7 @@
             this.txtNombreCategoria.Size = new System.Drawing.Size(230, 22);
             this.txtNombreCategoria.TabIndex = 7;
             this.txtNombreCategoria.TextChanged += new System.EventHandler(this.txtNombreCategoria_TextChanged);
+            this.txtNombreCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreCategoria_KeyPress);
             // 
             // lblNombreCategoria
             // 

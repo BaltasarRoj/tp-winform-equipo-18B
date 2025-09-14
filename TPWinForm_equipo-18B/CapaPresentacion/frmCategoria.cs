@@ -37,6 +37,7 @@ namespace CapaPresentacion
         {
             
         }
+        
 
         private void btnAceptarCategoria_Click(object sender, EventArgs e)
         {
@@ -92,6 +93,16 @@ namespace CapaPresentacion
 
         private void frmCategoria_Load(object sender, EventArgs e)
         {
+        }
+
+        // se cambia en las propiedades (EVENTOS) del txt a KeyPress para poder anular las teclas numericas
+        private void txtNombreCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != ' ')
+            {
+                e.Handled = true; 
+            }
         }
     }
 }
