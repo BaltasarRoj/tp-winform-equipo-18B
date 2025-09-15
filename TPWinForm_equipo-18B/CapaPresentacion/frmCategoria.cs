@@ -52,7 +52,7 @@ namespace CapaPresentacion
 
                 if (string.IsNullOrWhiteSpace(categoria.Descripcion))
                 {
-                    MessageBox.Show("Inserte el nombre de la Marca");
+                    MessageBox.Show("Inserte el nombre de la Categoria");
                     return;
                 }
 

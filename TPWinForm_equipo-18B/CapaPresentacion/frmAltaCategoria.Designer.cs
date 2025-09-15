@@ -82,7 +82,7 @@
             this.btnModificarCategoria.TabIndex = 9;
             this.btnModificarCategoria.Text = "Modificar";
             this.btnModificarCategoria.UseVisualStyleBackColor = true;
-            this.btnModificarCategoria.Click += new System.EventHandler(this.btnModificarCategoria_Click);
+            this.btnModificarCategoria.Click += new System.EventHandler(this.btnModificarCategoria_Click_1);
             // 
             // btnEliminarCategoria
             // 

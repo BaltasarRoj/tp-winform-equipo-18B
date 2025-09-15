@@ -55,49 +55,26 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.ToString());
             }
         }
-
-        private void btnModificarCategoria_Click(object sender, EventArgs e)
-        {
-            if (dgvCategorias.CurrentRow == null)
-            {
-                MessageBox.Show("Seleccione una categoria para modificar.");
-                return;
-            }
-
-            var seleccionado = dgvCategorias.CurrentRow.DataBoundItem as Categoria;
-            if (seleccionado == null)
-            {
-                MessageBox.Show("No se pudo obtener la categoria seleccionada.");
-                return;
-            }
-
-            frmCategoria modificar = new frmCategoria(seleccionado);
-            modificar.ShowDialog();
-            cargar();
-        }
-
-
+   
         private void btnEliminarCategoria_Click(object sender, EventArgs e)
         {
-            Categoria seleccionado = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
 
-            DialogResult confirmacion = MessageBox.Show(
-                "¿Confirmar eliminacion de esta categoría?"
-            );
-
-            if (confirmacion == DialogResult.No)
-                return;
-
+            CategoriaNegocio categoria = new CategoriaNegocio();
+            Categoria seleccionado;
             try
             {
-                CategoriaNegocio negocio = new CategoriaNegocio();
-                negocio.eliminar(seleccionado.Id);
-                MessageBox.Show("categoria eliminada");
-                cargar();
+                DialogResult respuesta = MessageBox.Show("¿Querés eliminar la categoria?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
+                    categoria.eliminar(seleccionado.Id);
+                    cargar();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -106,6 +83,16 @@ namespace CapaPresentacion
         {
             frmCategoria marca = new frmCategoria();
             marca.ShowDialog();
+            cargar();
+        }
+
+        private void btnModificarCategoria_Click_1(object sender, EventArgs e)
+        {
+            Categoria seleccionado;
+            seleccionado = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
+
+            frmCategoria modificar = new frmCategoria(seleccionado);
+            modificar.ShowDialog();
             cargar();
         }
     }
