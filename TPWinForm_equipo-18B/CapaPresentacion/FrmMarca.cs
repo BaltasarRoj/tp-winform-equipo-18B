@@ -28,22 +28,49 @@ namespace CapaPresentacion
 
         private void btnEliminarMarca_Click(object sender, EventArgs e)
         {
-            MarcaNegocio marca = new MarcaNegocio();
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
             Marca seleccionado;
+
             try
             {
-                DialogResult respuesta = MessageBox.Show("¿Querés eliminar la marca?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                DialogResult respuesta = MessageBox.Show(
+                    "¿Querés eliminar la marca?",
+                    "Eliminando",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning,
+                    MessageBoxDefaultButton.Button2
+                );
+
                 if (respuesta == DialogResult.Yes)
                 {
                     seleccionado = (Marca)dgvMarca.CurrentRow.DataBoundItem;
-                    marca.eliminar(seleccionado.Id);
-                    cargar();
+
+                    bool eliminada = marcaNegocio.eliminar(seleccionado.Id);
+
+                    if (!eliminada)
+                    {
+                        MessageBox.Show(
+                            "No se puede eliminar la marca porque está asociada a uno o más artículos.",
+                            "Eliminación no permitida",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Marca eliminada correctamente.",
+                            "Eliminación exitosa",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+                        cargar();
+                    }
                 }
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
         }
 
