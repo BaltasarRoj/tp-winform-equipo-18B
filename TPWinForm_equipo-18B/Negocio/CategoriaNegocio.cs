@@ -81,15 +81,45 @@ namespace Negocio
         }
 
 
-        public void eliminar(int id)
+        public bool eliminar(int id)
         {
-            AccesoDatos datos = new AccesoDatos();
+            if (ExisteCategoriaEnArticulos(id))
+            {
+                return false;
+            }
 
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("DELETE FROM CATEGORIAS WHERE Id = @Id");
-                datos.setearParametro("@Id", id);
+                datos.setearConsulta("DELETE FROM CATEGORIAS WHERE Id = @id");
+                datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public bool ExisteCategoriaEnArticulos(int idCategoria)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT COUNT(*) FROM ARTICULOS WHERE IdCategoria = @idCategoria");
+                datos.setearParametro("@idCategoria", idCategoria);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    int cantidad = (int)datos.Lector[0];
+                    return cantidad > 0; // True si hay artículos con esa marca
+                }
+
+                return false;
             }
             catch (Exception ex)
             {

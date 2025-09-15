@@ -55,26 +55,51 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.ToString());
             }
         }
-   
+
         private void btnEliminarCategoria_Click(object sender, EventArgs e)
         {
-
-            CategoriaNegocio categoria = new CategoriaNegocio();
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             Categoria seleccionado;
+
             try
             {
-                DialogResult respuesta = MessageBox.Show("¿Querés eliminar la categoria?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                DialogResult respuesta = MessageBox.Show(
+                    "¿Querés eliminar la categoría?",
+                    "Eliminando",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning,
+                    MessageBoxDefaultButton.Button2
+                );
+
                 if (respuesta == DialogResult.Yes)
                 {
                     seleccionado = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
-                    categoria.eliminar(seleccionado.Id);
-                    cargar();
+
+                    bool eliminada = categoriaNegocio.eliminar(seleccionado.Id);
+
+                    if (!eliminada)
+                    {
+                        MessageBox.Show(
+                            "No se puede eliminar la categoría porque está asociada a uno o más artículos.",
+                            "Eliminación no permitida",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Categoría eliminada correctamente.",
+                            "Eliminación exitosa",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+                        cargar();
+                    }
                 }
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
         }
 
