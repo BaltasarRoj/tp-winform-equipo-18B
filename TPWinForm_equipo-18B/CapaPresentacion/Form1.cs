@@ -51,7 +51,32 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.ToString());
             }
         }
-        
+
+        private void cargarDGWconUnaImagen()
+        {
+            try
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                listaArticulo = negocio.listarUnaSolaImagen();
+
+                dgvArticulos.DataSource = listaArticulo;
+                dgvArticulos.Columns["UrlImagen"].Visible = false;
+                dgvArticulos.Columns["ID"].Visible = false;
+
+                //Formatear columna Precio con moneda Argentina
+                var cultureAR = new CultureInfo("es-AR");
+                dgvArticulos.Columns["precio"].DefaultCellStyle.FormatProvider = cultureAR;
+                dgvArticulos.Columns["precio"].DefaultCellStyle.Format = "C2";
+
+                pbxArticulo.Load(listaArticulo[0].UrlImagen);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
@@ -189,7 +214,75 @@ namespace CapaPresentacion
 
                 MessageBox.Show(ex.ToString());
             }
-        }   
+        }
+
+        private void btnEliminarImagen_Click(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un artículo primero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Articulo eliminado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            if (string.IsNullOrEmpty(eliminado.UrlImagen))
+            {
+                MessageBox.Show("No hay imagen seleccionada para eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult respuesta = MessageBox.Show(
+                "¿Seguro que quieres eliminar esta imagen?",
+                "Eliminar Imagen",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (respuesta == DialogResult.Yes)
+            {
+                try
+                {
+                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    negocio.EliminarImagen(eliminado.id, eliminado.UrlImagen);
+
+                    MessageBox.Show("Imagen eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    cargar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocurrió un error al eliminar la imagen: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un artículo primero.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            AltaImagen ventana = new AltaImagen(seleccionado.id);
+            ventana.ShowDialog();
+
+            cargar();
+        }
+
+        private void btnListarUnaImagen_Click(object sender, EventArgs e)
+        {
+            cargarDGWconUnaImagen();
+        }
+
+        private void btnListarTodasImagenes_Click(object sender, EventArgs e)
+        {
+            cargar();
+        }
     }
 
 }

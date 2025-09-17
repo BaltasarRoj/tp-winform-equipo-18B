@@ -16,6 +16,7 @@ namespace CapaPresentacion
     public partial class frmAltaArticulo : Form
     {
         private Articulo articulo = null;
+        private string urlVieja;
         public frmAltaArticulo()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.articulo = articulo;
-            Text = "Modificar Articulo";
+            Text = "Modificar Artículo";
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -35,22 +36,20 @@ namespace CapaPresentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            //Articulo nuevo = new Articulo();    
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
                 if (!validarArticulo())
                     return;
 
-               /* if (ExisteCodigo(txtCodigo.Text)) {
-                    MessageBox.Show("el codigo ingresado ya existe. Ingrese otro codigo");
-                    return;
-                }
-               */
-
                 if (articulo == null)
                     articulo = new Articulo();
 
+                // Guardar la URL vieja solo la primera vez que se carga el artículo
+                if (articulo.id != 0 && string.IsNullOrEmpty(urlVieja))
+                    urlVieja = articulo.UrlImagen;
+
+                // Actualizar datos del artículo
                 articulo.codigoArticulo = txtCodigo.Text;
                 articulo.nombre = txtNombre.Text;
                 articulo.Marca = (Marca)cboMarca.SelectedItem;
@@ -59,29 +58,23 @@ namespace CapaPresentacion
                 articulo.precio = decimal.Parse(txtPrecio.Text);
                 articulo.UrlImagen = txtUrlImagen.Text;
 
-
                 if (articulo.id != 0)
                 {
-
-                    negocio.modificarArticulo(articulo);
+                    // Pasar URL vieja y nueva al método modificarArticulo
+                    negocio.modificarArticulo(articulo, urlVieja, articulo.UrlImagen);
                     MessageBox.Show("Modificado correctamente");
-
                 }
-                else {
-
+                else
+                {
                     negocio.agregarArticulo(articulo);
-                    MessageBox.Show("agregado correctamente");
-
+                    MessageBox.Show("Agregado correctamente");
                 }
-
 
                 Close();
-
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
         }
 
